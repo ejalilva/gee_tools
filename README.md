@@ -43,13 +43,15 @@ dataset = XeeDataset('MODIS/061/MOD13A2')
 # Define your region of interest
 bbox = [lat_min, lat_max, lon_min, lon_max]  # [24.4, 49.4, -125.0, -66.9] for CONUS
 
-# Chain operations for data processing
+# Chain operations for data processing, it is better to narrow down the search using ee_tools (the first 3 in the chain) before using xarray-side tools
 result = (dataset
-          .ee_subset_time(['2020-01-01', '2020-12-31'])
-          .ee_crop(bbox)
-          .ee_var_sel('NDVI')
-          .to_xarray(0.01, 'NDVI')
-          .xr_crop(bbox))
+          # EE-side filtering or processing
+          .ee_subset_time(['2020-01-01', '2020-12-31']) # filtering image collection in Earth engine by a date range
+          .ee_crop(bbox) # filtering image by intersection with a geometry (here a box)
+          .ee_var_sel('NDVI') # Selection of variable in the image collection
+          # Xarray side filtering or processing
+          .to_xarray(0.01, 'NDVI') # importing the image as an xarray object
+          .xr_crop(bbox)) # croping the image using a bounding box
 
 # Access the data
 result.data
