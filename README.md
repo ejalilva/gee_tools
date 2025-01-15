@@ -12,7 +12,7 @@ Before installing this package, make sure you have:
 
 1. Clone the repository:
 ```bash
-git clone [your-repository-url]
+git clone https://github.com/ejalilva/gee_tools 
 cd gee_tools
 ```
 
