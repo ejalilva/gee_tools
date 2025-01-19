@@ -10,7 +10,8 @@ setup(
         'xarray',
         'pandas',
         'matplotlib',
-	'xee'
+	    'xee',
+        'rioxarray'
     ],
     author="Ehsan Jalilvand",
     description="A package for handling Google Earth Engine data with xarray integration",
