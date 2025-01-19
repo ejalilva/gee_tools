@@ -11,7 +11,7 @@ setup(
         'pandas',
         'matplotlib',
 	'xee'
-    ]
+    ],
     author="Ehsan Jalilvand",
     description="A package for handling Google Earth Engine data with xarray integration",
 )
