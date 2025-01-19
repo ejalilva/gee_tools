@@ -2,6 +2,7 @@ import ee
 import xarray as xr
 import pandas as pd
 from .geometry import create_rectangle
+import rioxarray as rio
 
 class XeeDataset:
     """
@@ -60,15 +61,16 @@ class XeeDataset:
         self.ee_data = self.ee_data.select(var)
         return self
 
-    def to_xarray(self, scale, var):
+    def to_xarray(self, scale, var,crs = 'EPSG:4326'):
         """
         Convert to xarray dataset.
         
         Parameters:
         scale (float): spatial resolution, for WGS84 it would be decimal degree e.g. 0.01 ~ 1km 
         var (str): Variable name
+        crs (str): coordinate reference system e.g. 'EPSG:4326'
         """
-        self.data = xr.open_dataset(self.ee_data, engine='ee', crs='EPSG:4326', scale=scale)[var]
+        self.data = xr.open_dataset(self.ee_data, engine='ee', crs=crs, scale=scale)[var]
         return self
 
     def xr_crop(self, bbox):
