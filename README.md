@@ -3,7 +3,6 @@
 
 A Python package for working with Google Earth Engine data using xarray integration.\
 <br>
-<br>
 
 ## Prerequisites
 
