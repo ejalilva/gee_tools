@@ -1,9 +1,9 @@
 # GeoStreamPy
 <img align="right" width="400" src="https://github.com/ejalilva/gee_tools/blob/master/static/GeoStreamPy.png">
 
-A Python package for working with Google Earth Engine data using xarray integration.
+A Python package for working with Google Earth Engine data using xarray integration.\
 \
-\
+
 ## Prerequisites
 
 Before installing this package, make sure you have:
